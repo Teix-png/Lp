@@ -1,3 +1,223 @@
-body {
-    background-color: blue;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+#Section01 {
+    height: 100vh;
+    width: 100%;
+    background-image: url(./BG/bg_01.webp);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#divContainerSection01{
+    color: white;
+    padding-top: 150px;
+    width: 80%;
+    margin-left: 5%;
+}
+#logo {
+    width: 50%;
+    margin-bottom: 20px;
+}
+.check {
+    font-size: 20px;
+    font-family: "Poppins";
+    font-weight: 200;
+    width: 50%;
+    background-color: rgba(0, 255, 255, 0);
+    display: flex;
+    flex-direction: row;
+}
+.check img {
+    padding: 5px;
+    width: 30px;
+}
+#BTN {
+    margin-top: 50px;
+    height: 35px;
+    width: 20%;
+    margin-left: 10%;
+    border: solid 1px rgba(131, 129, 129, 0.534);
+    background-color: black;
+    color: white;
+}
+@media (max-width: 800px){
+    #Section01 {
+        height: 100vh;
+        width: 100%;
+        background-image: url(./BG/desgner\ mobille.webp);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    #divContainerSection01{
+        color: white;
+        padding-top: 150px;
+        width: 90%;
+        margin-left: 5%;
+    }
+    #logo {
+        width: 90%;
+        margin-left: 5px;
+        margin-bottom: 20px;
+    }
+    .check {
+        font-size: 15px;
+        font-family: "Poppins";
+        font-weight: 200;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .check img {
+        margin-right: 10px;
+        padding: 5px;
+        width: 30px;
+    }
+    #BTN {
+        margin-top: 50px;
+        height: 35px;
+        width: 50%;
+        margin-left: 25%;
+        border: solid 1px rgba(131, 129, 129, 0.534);
+        background-color: black;
+        color: white;
+    }
+
+}
+
+
+#Section02 {
+    width: 100%;
+    height: 100vh;height: 100vh;
+    width: 100%;
+    background-image: url(./BG/bg_02.webp);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#ContentSection2 {
+    width: 100%;
+    height: auto;
+}
+#ContentSection2 img {
+    margin-top: 50px;
+    width: 30%; 
+    margin-left: 60%;
+}
+#Txtsection2 {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.308);
+    width: 30%;
+    line-height: 30px;
+    font-family: "Poppins";
+    margin-left: 60%;
+}
+#BTNs2 {
+    margin-top: 50px;
+    height: 35px;
+    width: 30%;
+    margin-left: 60%;
+    border: solid 1px rgba(131, 129, 129, 0.534);
+    background-color: black;
+    color: white;
+}
+@media (max-width: 800px){
+    #Section02 {
+        width: 100%;
+        height: 100vh;height: 100vh;
+        width: 100%;
+        background-image: url(./BG/06.webp);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #ContentSection2 {
+        width: 100%;
+        height: auto;
+    }
+    #ContentSection2 img {
+        margin-top: 50px;
+        width: 80%; 
+        margin-left: 10%;
+    }
+    #Txtsection2 {
+        margin-top: 30px;
+        text-align: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.384);
+        width: 80%;
+        line-height: 30px;
+        font-family: "Poppins";
+        margin-left: 10%;
+    }
+    #BTNs2 {
+        margin-top: 50px;
+        height: 35px;
+        width: 50%;
+        margin-left: 25%;
+        border: solid 1px rgba(131, 129, 129, 0.534);
+        background-color: black;
+        color: white;
+    }
+}
+
+#Section3 {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./BG/03.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (max-width: 800px){
+    #Section3{
+        width: 100%;
+        height: 100vh;
+        background-image: url(./BG/desgner\ mobille03.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+#Section4 {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./BG/LP_APRESENTAÇÂOdep4.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (max-width: 800px){
+    #Section4{
+        width: 100%;
+        height: 100vh;
+        background-image: url(./BG/desgner\ mobille4.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+#Section5 {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./BG/LP_05.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (max-width: 800px){
+    #Section5{
+        width: 100%;
+        height: 100vh;
+        background-image: url(./BG/finalmob.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
 }
