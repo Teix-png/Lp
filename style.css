@@ -3,6 +3,13 @@
     margin: 0;
     box-sizing: border-box;
 }
+a {
+    cursor: pointer;
+
+}
+button {
+    cursor: pointer;
+}
 #Section01 {
     height: 100vh;
     width: 100%;
@@ -94,7 +101,7 @@
     width: 100%;
     height: 100vh;height: 100vh;
     width: 100%;
-    background-image: url(./BG/bg_02.webp);
+    background-image: url(./BG/bg_02.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -132,7 +139,7 @@
         width: 100%;
         height: 100vh;height: 100vh;
         width: 100%;
-        background-image: url(./BG/06.webp);
+        background-image: url(./BG/06.png);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -170,10 +177,22 @@
 #Section3 {
     width: 100%;
     height: 100vh;
-    background-image: url(./BG/03.png);
+    background-image: url(./BG/bg_03.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#Servicos {
+    width: 50%;
+    margin-left: 10%;
+    padding-top: 40px;
+}
+#Servicos #logoServico{
+    width: 80%;
+    margin-bottom: 50px;
+}
+#Servicos #txtservicos {
+    width: 80%;
 }
 @media (max-width: 800px){
     #Section3{
@@ -184,16 +203,49 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    #Servicos {
+        text-align: center;
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 150px;
+    }
+    #Servicos #logoServico{
+        width: 80%;
+        margin-bottom: 50px;
+    }
+    #Servicos #txtservicos {
+        width: 80%;
+    }
 }
 
 #Section4 {
     width: 100%;
     height: 100vh;
-    background-image: url(./BG/LP_APRESENTAÇÂOdep4.png);
+    background-image: url(./BG/04.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+#Section4 #dep{
+    padding-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+#Section4 #dep #logDep {
+    padding-top: 20px;
+    margin-left: 5%;
+    width: 40%;
+    height: 40%;
+}
+#Section4 #dep #divDep{
+    text-align: center;
+}
+#Section4 #dep #divDep #depde {
+    padding-top: 50px;
+    width: 40%;
+}
+
 @media (max-width: 800px){
     #Section4{
         width: 100%;
@@ -203,21 +255,85 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+    #Section4 #dep{
+        padding-top: 80px;
+        width: 80%;
+        margin-left: 10%;
+        display: flex;
+        flex-direction: column;
+    }
+    #Section4 #dep #logDep {
+        padding-top: 20px;
+        margin-left: 5%;
+        width: 80%;
+    }
+    #Section4 #dep #divDep{
+        text-align: center;
+    }
+    #Section4 #dep #divDep #depde {
+        padding-top: 10px;
+        width: 80%;
+    }    
 }
+
 #Section5 {
     width: 100%;
     height: 100vh;
-    background-image: url(./BG/LP_05.png);
+    background-image: url(./BG/bg_05\ -\ Copia.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#Escrita05 {
+    padding-top:40px;
+    width: 50%;
+    margin-left: 10%;
+}
+#Escrita05 #texto05 {
+    width: 80%;
+    margin-left: 10%;
 }
 @media (max-width: 800px){
     #Section5{
         width: 100%;
         height: 100vh;
-        background-image: url(./BG/finalmob.png);
+        background-image: url(./BG/7.png);
         background-position: center center;
         background-repeat: no-repeat;
     }
+    #Escrita05 {
+        padding-top: 250px;
+        width: 90%;
+        margin-left: 5%;
+    }
+    #Escrita05 #texto05 {
+        width: 80%;
+        margin-left: 10%;
+    }
+    
+}
+footer {
+    width: 100%;
+    height: auto;
+    background-image: url(./BG/footrt.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+#Footer {
+    color: white;
+    padding-top: 50px;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+#redes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#redes img {
+    margin-top: 30px;
+    width: 40px;
+    margin-bottom: 30px;
 }
