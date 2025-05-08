@@ -1,79 +1,664 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <section id="Section01">
-        <div id="divContainerSection01">
-            <img id="logo" src="./BG/LP_APRESENTAÇÂO .webp"  alt="logo">         
+    <title>Casa Prime - Locação de Espaço para Festas e Eventos em Mairiporã</title>
+    <meta name="description" content="Alugue o espaço perfeito para seu evento em Mairiporã. Festas memoráveis com infraestrutura completa e atendimento personalizado.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
         
-            <div class="check">
-                <img src="./BG//chck.webp" alt="check"/> <p class="pCheck">Motoristas experientes e qualificados</p>
-            </div>
-            <div class="check">
-                <img src="./BG//chck.webp" alt="check"/> <p class="pCheck">Veículos de alto padrão</p>
-            </div>
-            <div class="check">
-                <img src="./BG//chck.webp" alt="check"/> <p class="pCheck">Atendimento personalizado</p>
+        :root {
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+        }
+        
+        .floating-cta {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .feature-icon {
+            background: var(--secondary);
+            width: 60px;
+            height: 60px;
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .package-card {
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .popular {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .mobile-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Floating CTA for Mobile -->
+    <div class="mobile-cta md:hidden">
+        <a href="#form" class="bg-[#d4af37] hover:bg-[#c19b2e] text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center">
+            <i class="fas fa-calendar-check mr-2"></i> Orçamento
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <span class="title-font text-2xl font-bold text-[#1a365d]">Casa Prime</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-700 hover:text-[#d4af37] font-medium">Vantagens</a>
+                <a href="#events" class="text-gray-700 hover:text-[#d4af37] font-medium">Eventos</a>
+                <a href="#packages" class="text-gray-700 hover:text-[#d4af37] font-medium">Pacotes</a>
+                <a href="#gallery" class="text-gray-700 hover:text-[#d4af37] font-medium">Galeria</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-[#d4af37] font-medium">Depoimentos</a>
+                <a href="#form" class="bg-[#1a365d] hover:bg-[#2c5282] text-white font-bold py-2 px-6 rounded-full">Orçamento</a>
             </div>
             
-            <a href="https://wa.me/5511961174146" target="_blank" ><button id="BTN" >SOLICITAR ORÇAMENTO</button></a>
+            <button class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
-    </section>
-    <section id="Section02">
-        <div id="ContentSection2">
-            <img src="./BG/quem.webp" alt="Quensomos"/>
-            <br/>
-            <div id="Txtsection2">
-                A <b>Jhonny Teixeira Transporte Executivo</b> 
-                nasceu para oferecer um serviço de motorista particular com <b>alto nivél de
-                qualidade e exclusividade.</b>
-                Atuamos com profissionais experientes, garantindo pontualidade, descrição e 
-                conforto para nossos cliente. 
-                
-                Seja para compromissos de negócios, 
-                viagens ou eventos, nosso objetivo é 
-                <b>proporcionar uma experiências premium e sem preocupações.</b> 
-            </div>
-            <a href="https://wa.me/5511961174146" target="_blank" ><button id="BTNs2">SAIBA MAIS</button></a>
-        </div>
-    </section>
-    <section id="Section3">
-        <div id="Servicos">
-            <img id="logoServico" src="./BG/servicos.png" alt="serviços"/>
-            <img id="txtservicos" src="./BG/txtservicos.png" alt="txt"/>
-        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="title-font text-4xl md:text-6xl font-bold mb-4">Casa Prime</h1>
+            <h2 class="title-font text-2xl md:text-4xl font-semibold mb-8">Onde Cada Festa Vira um Evento Memorável!</h2>
+            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Transforme sua comemoração em uma experiência exclusiva.</p>
+            <a href="#form" class="floating-cta bg-[#d4af37] hover:bg-[#c19b2e] text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg inline-block">Solicitar Orçamento</a>
+        </div>
     </section>
-    <section id="Section4">
-        <div id="dep">
-            <img id="logDep" src="./BG/dep.png" alt="logo" />
-            <div id="divDep">
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-[#1a365d] mb-12">Por que Escolher a Casa Prime?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-swimming-pool text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#1a365d]">Piscina com iluminação noturna</h3>
+                    <p class="text-gray-600">Piscina climatizada com iluminação especial para criar o clima perfeito para sua festa.</p>
+                </div>
                 
-                <img id="depde" src="./BG/ddep.png" alt="dep" />
+                <!-- Feature 2 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-utensils text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#1a365d]">Salão completo</h3>
+                    <p class="text-gray-600">Mesas, cadeiras e sistema de som de alta qualidade incluídos em todos os pacotes.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-bed text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#1a365d]">Suíte de apoio</h3>
+                    <p class="text-gray-600">Espaço reservado para descanso ou acomodação de convidados especiais.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-restroom text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#1a365d]">Banheiros amplos</h3>
+                    <p class="text-gray-600">Banheiros espaçosos e acessíveis para maior conforto dos convidados.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-wifi text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#1a365d]">Wi-Fi liberado</h3>
+                    <p class="text-gray-600">Internet de alta velocidade disponível para todos os convidados.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-[#1a365d]">Segurança 24h</h3>
+                    <p class="text-gray-600">Monitoramento constante para garantir a tranquilidade de todos.</p>
+                </div>
             </div>
         </div>
-        
     </section>
-    <section id="Section5">
-        <div id="Escrita05">
-            <img id="texto05" src="./BG/Final.png" alt="texto05"/>
+
+    <!-- Event Types Section -->
+    <section id="events" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-[#1a365d] mb-12">Ideal para todo tipo de evento:</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Event 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-[#d4af37] text-4xl mb-4">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Aniversários</h3>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-[#d4af37] text-4xl mb-4">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Confraternizações</h3>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-[#d4af37] text-4xl mb-4">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Casamentos</h3>
+                </div>
+                
+                <!-- Event 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-[#d4af37] text-4xl mb-4">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Chá revelação</h3>
+                </div>
+                
+                <!-- Event 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+                    <div class="text-[#d4af37] text-4xl mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">Pool parties</h3>
+                </div>
+            </div>
         </div>
-        
     </section>
-    <footer>
-        <div id="Footer">
-            <p id="pfotter">&copy 2025 JHONNY TEIXEIRA TRANSPORTE EXECUTIVO - TODOS OS DIREITOS RESERVADOS.</p>
-            <div id="redes">
-                <a href="https://wa.me/5511961174146" target="_blank" ><img src="./BG/insta.png" alt="rede"/></a>
-                <a href="https://wa.me/5511961174146" target="_blank" ><img src="./BG/Facebook.png" alt="rede"/></a>
-                <a href="https://wa.me/5511961174146" target="_blank" ><img src="./BG/WhatsApp.png" alt="rede"/></a>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-[#1a365d] mb-12">Pacotes Personalizados</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Package 1 -->
+                <div class="package-card bg-white rounded-lg shadow-md p-6 relative">
+                    <h3 class="text-xl font-bold mb-4 text-[#1a365d]">Basic</h3>
+                    <p class="text-3xl font-bold mb-4 text-[#d4af37]">R$ 1.200<span class="text-sm text-gray-500">/6h</span></p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Até 6 horas de uso</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Acesso à piscina</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Churrasqueira</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Mesas e cadeiras</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="block w-full bg-gray-100 hover:bg-[#d4af37] hover:text-white text-center py-2 rounded font-medium transition-colors">Solicitar</a>
+                </div>
+                
+                <!-- Package 2 -->
+                <div class="package-card bg-white rounded-lg shadow-md p-6 relative">
+                    <div class="popular">MAIS PEDIDO</div>
+                    <h3 class="text-xl font-bold mb-4 text-[#1a365d]">Premium</h3>
+                    <p class="text-3xl font-bold mb-4 text-[#d4af37]">R$ 2.400<span class="text-sm text-gray-500">/12h</span></p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Até 12 horas de uso</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Casa completa</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Serviço de limpeza</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Sistema de som</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Suíte de apoio</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="block w-full bg-[#1a365d] hover:bg-[#2c5282] text-white text-center py-2 rounded font-medium transition-colors">Solicitar</a>
+                </div>
+                
+                <!-- Package 3 -->
+                <div class="package-card bg-white rounded-lg shadow-md p-6 relative">
+                    <h3 class="text-xl font-bold mb-4 text-[#1a365d]">Noturno</h3>
+                    <p class="text-3xl font-bold mb-4 text-[#d4af37]">R$ 1.800<span class="text-sm text-gray-500">/6h</span></p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Das 18h às 00h</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Iluminação especial</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Piscina aquecida</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Segurança reforçada</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="block w-full bg-gray-100 hover:bg-[#d4af37] hover:text-white text-center py-2 rounded font-medium transition-colors">Solicitar</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">Oferecemos também serviços adicionais para tornar seu evento ainda mais especial:</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-gray-100 px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-music text-[#d4af37] mr-2"></i> DJ
+                    </span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-utensils text-[#d4af37] mr-2"></i> Buffet
+                    </span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-palette text-[#d4af37] mr-2"></i> Decoração
+                    </span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-camera text-[#d4af37] mr-2"></i> Fotógrafo
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-[#1a365d] mb-12">Nosso Espaço</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Photo 1 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Área da piscina da Casa Prime" 
+                         class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Salão de festas da Casa Prime" 
+                         class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Área externa da Casa Prime" 
+                         class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Photo 4 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1555244162-803834f70075?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Churrasqueira da Casa Prime" 
+                         class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Photo 5 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Suíte de apoio da Casa Prime" 
+                         class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Photo 6 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Banheiros da Casa Prime" 
+                         class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-flex items-center text-[#1a365d] font-medium hover:text-[#d4af37]">
+                    Ver mais fotos
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-[#1a365d] mb-12">Depoimentos Reais</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rodrigo M." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Rodrigo M.</h4>
+                            <div class="flex text-[#d4af37]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Fiz o aniversário de 30 anos na Casa Prime e foi incrível! O espaço é amplo, bem cuidado e a piscina à noite com aquela iluminação fica espetacular. Recomendo demais!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Camila T." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Camila T.</h4>
+                            <div class="flex text-[#d4af37]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Fiz meu chá de bebê lá e foi perfeito! O atendimento foi excelente, o espaço super aconchegante e todo mundo elogiou. A suíte de apoio foi ótima para as mamães com bebês."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Felipe L." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Felipe L.</h4>
+                            <div class="flex text-[#d4af37]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Contratei o pacote premium para minha formatura e valeu cada centavo! A equipe foi super atenciosa, o espaço estava impecável e o sistema de som de alta qualidade."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-[#1a365d] mb-12">Localização Estratégica</h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <p class="text-lg text-gray-700 mb-4">Mairiporã - fácil acesso, natureza ao redor e total segurança.</p>
+                    <p class="text-gray-600 mb-6">Nosso espaço está localizado em uma área privilegiada de Mairiporã, com fácil acesso pela Rodovia Fernão Dias e cercado pela natureza, proporcionando privacidade e tranquilidade para seu evento.</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-car text-[#d4af37] mt-1 mr-3"></i>
+                            <span class="text-gray-700">15 min do centro de Mairiporã</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-[#d4af37] mt-1 mr-3"></i>
+                            <span class="text-gray-700">Rua das Flores, 123 - Jardim Primavera</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-tree text-[#d4af37] mt-1 mr-3"></i>
+                            <span class="text-gray-700">Área arborizada e privativa</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-300 rounded-lg overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.123456789012!2d-46.12345678901234!3d-23.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA3JzI0LjQiUyA0NsKwMDcnMjQuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr" 
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="form" class="py-16 bg-[#1a365d] text-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center mb-4">Faça Sua Reserva Agora!</h2>
+            <p class="text-center text-lg mb-8">Finais de semana esgotam rápido! Garanta já a data do seu evento.</p>
+            
+            <form class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Nome completo</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37] text-gray-800" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">E-mail</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37] text-gray-800" required>
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Celular</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37] text-gray-800" required>
+                    </div>
+                    
+                    <div>
+                        <label for="date" class="block text-gray-700 font-medium mb-2">Data prevista do evento</label>
+                        <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37] text-gray-800" required>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="package" class="block text-gray-700 font-medium mb-2">Pacote de interesse</label>
+                        <select id="package" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37] text-gray-800">
+                            <option value="">Selecione um pacote</option>
+                            <option value="basic">Basic - R$ 1.200 (6h)</option>
+                            <option value="premium">Premium - R$ 2.400 (12h)</option>
+                            <option value="noturno">Noturno - R$ 1.800 (6h)</option>
+                            <option value="personalizado">Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Detalhes do seu evento (opcional)</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#d4af37] text-gray-800"></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button type="submit" class="bg-[#d4af37] hover:bg-[#c19b2e] text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition-colors">
+                        Solicitar Orçamento
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="title-font text-xl font-bold mb-4">Casa Prime</h3>
+                    <p class="text-gray-400">Onde cada festa vira um evento memorável!</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-[#d4af37]"></i>
+                            <span>(11) 98765-4321</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-[#d4af37]"></i>
+                            <span>contato@casaprime.com.br</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-[#d4af37]"></i>
+                            <span>Rua das Flores, 123 - Mairiporã/SP</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Horário</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="far fa-clock mt-1 mr-3 text-[#d4af37]"></i>
+                            <span>Seg-Sex: 9h às 18h</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="far fa-clock mt-1 mr-3 text-[#d4af37]"></i>
+                            <span>Sáb: 9h às 13h</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-calendar-day mt-1 mr-3 text-[#d4af37]"></i>
+                            <span>Eventos: 7 dias/semana</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d4af37] transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d4af37] transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d4af37] transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Casa Prime - Locação de Espaço para Festas. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Simple form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Show success message
+            alert(Obrigado, ${name}! Seu orçamento foi solicitado com sucesso. Entraremos em contato pelo e-mail ${email} em breve.);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Mobile menu toggle (would need more JS for full functionality)
+        document.querySelector('nav button').addEventListener('click', function() {
+            alert('Menu mobile seria implementado aqui com JavaScript mais avançado.');
+        });
+    </script>
 </body>
 </html>
